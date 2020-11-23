@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="@layout/content_main">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/button_one"
+            style="@style/button_style"
+            android:text="@string/button_one" />
+
+        <Button
+            android:id="@+id/button_two"
+            style="@style/button_style"
+            android:layout_marginLeft="@dimen/small_margin"
+            android:layout_marginRight="@dimen/small_margin"
+            android:text="@string/button_two" />
+
+        <Button
+            android:id="@+id/button_three"
+            style="@style/button_style"
+            android:text="@string/button_three" />
+    </LinearLayout>
+
+
+</merge>

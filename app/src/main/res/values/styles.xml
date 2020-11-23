@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="text_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textSize">@dimen/font_size</item>
+        <item name="android:typeface">serif</item>
+    </style>
+
+    <style name="button_style">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
+    </style>
+</resources>
