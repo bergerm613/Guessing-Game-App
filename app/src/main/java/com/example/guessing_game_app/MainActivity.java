@@ -39,38 +39,29 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupButtons() {
         buttonClear.setVisibility(View.INVISIBLE);
+        setClearButtonListener();
+        setNumberButtonsListener();
+    }
 
-        buttonOne.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                buttonClear.setVisibility(View.VISIBLE);
-                solution.setText(game.getSolution(1));
-            }
-        });
+    private void setNumberButtonsListener() {
+        View.OnClickListener numberListener = view -> {
+            buttonClear.setVisibility(View.VISIBLE);
+            Button currentButton = (Button) view;
+            String currentButtonText = currentButton.getText().toString();
+            solution.setText(game.getGuessResult(currentButtonText));
+        };
 
-        buttonTwo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                buttonClear.setVisibility(View.VISIBLE);
-                solution.setText(game.getSolution(2));
-            }
-        });
+        Button[] numberButtons = { buttonOne, buttonTwo, buttonThree };
 
+        for (Button current : numberButtons) {
+            current.setOnClickListener(numberListener);
+        }
+    }
 
-        buttonThree.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                buttonClear.setVisibility(View.VISIBLE);
-                solution.setText(game.getSolution(3));
-            }
-        });
-
-        buttonClear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                buttonClear.setVisibility(View.INVISIBLE);
-                solution.setText("");
-            }
+    private void setClearButtonListener() {
+        buttonClear.setOnClickListener(v -> {
+            buttonClear.setVisibility(View.INVISIBLE);
+            solution.setText("");
         });
     }
 

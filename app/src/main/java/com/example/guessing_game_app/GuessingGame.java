@@ -5,31 +5,29 @@ import java.util.Random;
 
 public class GuessingGame {
     Random rand = new Random();
-    int compsGuess;
+    String compsGuess;
 
     HashMap<Integer, String> numToString;
 
     GuessingGame() {
-        regenerateCompsGuess();
-
         numToString = new HashMap<>();
         numToString.put(1, "one");
         numToString.put(2, "two");
         numToString.put(3, "three");
     }
 
-    private void regenerateCompsGuess() {
-        compsGuess = rand.nextInt(2) + 1;
+    public String getGuessResult(String clicked) {
+        regenerateCompsGuess();
+        return getSolutionText(clicked);
     }
 
-    public String getSolution(int clicked) {
-        regenerateCompsGuess();
+    private void regenerateCompsGuess() {
+        compsGuess = numToString.get(rand.nextInt(3) + 1);
+    }
 
-        String clickedString = numToString.get(clicked);
-        if (clicked == compsGuess) {
-            return "Yes! The answer was " + clickedString + ".";
-        } else {
-            return "Aw man, " + clickedString + " was not the answer.";
-        }
+    private String getSolutionText(String clicked) {
+        return clicked.equalsIgnoreCase(compsGuess)
+                ? "Yes! The answer was " + clicked.toLowerCase() + "."
+                : "Aw man, " + clicked.toLowerCase() + " was not the answer.";
     }
 }
